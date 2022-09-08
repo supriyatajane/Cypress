@@ -28,3 +28,17 @@ Cypress.Commands.add('login',(username,password)=>{
     cy.get('input[name="password"]').type(password)
     cy.get('button[type="submit"]').click()
 })
+
+Cypress.Commands.add('validTable',(id,expected)=>{
+    let sum = 0
+        cy.get(`#t0${id}`).find('tr').each(function (el, index) {
+            if (index != 0) {
+                //cy.log(el.children('td').last().text())
+                sum = sum + Number(el.children('td').last().text())
+                return sum
+            }
+        }).then(function () {
+           // cy.log(sum)
+           expect(sum).eql(expected)
+        })
+})

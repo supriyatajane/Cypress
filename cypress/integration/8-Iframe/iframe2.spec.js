@@ -8,7 +8,7 @@ describe('verify the iframe functinality',()=>{
     })
 
     let getIfame=(id)=>{
-        cy.get(`#${id}`).its('0.contentDocument.body').then(cy.wrap)
+       return cy.get(`#${id}`).its('0.contentDocument.body').then(cy.wrap)
     }
 
     it('Tc-01 verify the ifame functinality using jqurey',()=>{

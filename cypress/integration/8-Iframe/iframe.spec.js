@@ -10,8 +10,8 @@ describe('verify the  iframe functinality',()=>{
 
 
     const getFrame=(id)=>{
-        cy.get(`#${id}`).its('0.contentDocument.body').then(cy.wrap)
-
+       return cy.get(`#${id}`).its('0.contentDocument.body').then(cy.wrap)
+        
     }
 
     //using jquery-------contents() method
@@ -32,7 +32,7 @@ describe('verify the  iframe functinality',()=>{
     })
 
     it('Tc-03 verify the ifame using common utility',()=>{
-        cy.visit('http://www.webdriveruniversity.com/IFrame/index.html')
+    
         getFrame('frame').find('a[href="index.html"]').should('have.text','Home')
     })
 })
